@@ -1,5 +1,5 @@
-import { CanvasManager } from "./CanvasManager";
-import { MapManager } from "./MapManager";
+import { CanvasManager } from "./Display/CanvasManager";
+import { MapManager } from "./Maps/MapManager";
 import { Player } from "./Entities/Player";
 
 // import { Settings } from "./Settings";
@@ -21,6 +21,7 @@ export class Game {
     this.canvas = new CanvasManager("gameCanvas");
     this.map = new MapManager();
     this.player = new Player();
+
     console.log(this.player);
   }
   init() {
@@ -29,6 +30,7 @@ export class Game {
     this.map.actorMap.addActor("player", this.player);
     let firstWalkableTile = this.map.getFirstWalkableTile();
     this.player.position = firstWalkableTile || { x: 0, y: 0 };
+    console.log(this.player);
     this.canvas.drawActors(this.map.actorMap);
     window.addEventListener("keydown", this.handleKeyDown.bind(this));
   }
