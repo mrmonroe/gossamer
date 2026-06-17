@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+canvas {
+  /* Let it scale naturally */
+  max-width: 100%;
+  height: auto;
+  /* Keeps pixels crisp */
+  image-rendering: pixelated;
+}
+#gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
