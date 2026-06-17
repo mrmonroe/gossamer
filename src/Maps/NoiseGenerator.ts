@@ -1,6 +1,6 @@
 import { createNoise2D } from "simplex-noise";
 import alea from "alea";
-import { TileType } from "./Tiles/TileDefs";
+import { TileType } from "../Tiles/TileDefs";
 
 export class NoiseGenerator {
   alea: any;

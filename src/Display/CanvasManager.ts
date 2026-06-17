@@ -1,6 +1,6 @@
-import type { Tile } from "./Tiles/Tile";
-import { Settings } from "./Settings";
-import type { ActorMap } from "./ActorMap";
+import type { Tile } from "../Tiles/Tile";
+import { Settings } from "../Settings";
+import type { ActorMap } from "../Maps/ActorMap";
 export class CanvasManager {
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;

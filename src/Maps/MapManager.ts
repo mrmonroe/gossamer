@@ -1,7 +1,7 @@
-import { Tile } from "./Tiles/Tile";
-import { TileDefs } from "./Tiles/TileDefs";
+import { Tile } from "../Tiles/Tile";
+import { TileDefs } from "../Tiles/TileDefs";
 import { NoiseGenerator } from "./NoiseGenerator";
-import { Settings } from "./Settings";
+import { Settings } from "../Settings";
 import { ActorMap } from "./ActorMap";
 
 export class MapManager {
