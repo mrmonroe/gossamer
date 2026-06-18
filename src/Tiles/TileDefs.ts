@@ -11,6 +11,8 @@ export enum TileType {
   TUNDRA = "tundra",
   DESERT = "desert",
   MUD = "mud",
+  ROAD = "road",
+  PATH = "path",
 }
 
 export interface TileConfig {
@@ -84,6 +86,20 @@ export const TileDefs: Record<TileType, TileConfig> = {
     character: ",",
     topColor: Color.BROWN,
     bottomColor: Color.DARKBROWN,
+  },
+  [TileType.ROAD]: {
+    type: TileType.ROAD,
+    walkable: true,
+    character: "-",
+    topColor: Color.LIGHTGRAY,
+    bottomColor: Color.DARKGRAY,
+  },
+  [TileType.PATH]: {
+    type: TileType.PATH,
+    walkable: true,
+    character: ":",
+    topColor: Color.LIGHTBROWN,
+    bottomColor: Color.DARKGRAY,
   },
   [TileType.UNKNOWN]: {
     type: TileType.UNKNOWN,

@@ -19,7 +19,7 @@ export class CanvasManager {
     this.ctx.font = `${Settings.fontSize}px Courier monospace`;
     this.ctx.imageSmoothingEnabled = false;
     this.ctx.textAlign = "center";
-    this.ctx.textBaseline = "top";
+    this.ctx.textBaseline = "middle";
     this.tileHeight = Settings.tileHeight;
     this.tileWidth = Settings.tileWidth;
   }
