@@ -38,8 +38,19 @@ export class CanvasManager {
     text: string,
     topColor: string,
     bottomColor: string,
+    bgColor: string,
   ) {
-    const charHeight = this.ctx.measureText(text).actualBoundingBoxDescent;
+    const textMetrics = this.ctx.measureText(text);
+    const charHeight = textMetrics.actualBoundingBoxDescent;
+
+    this.ctx.fillStyle = bgColor;
+    this.ctx.fillRect(
+      x - this.tileHeight / 2,
+      y,
+      this.tileWidth,
+      this.tileHeight,
+    );
+
     const gradient = this.ctx.createLinearGradient(x, y, x, y + charHeight);
     gradient.addColorStop(0, "white");
     gradient.addColorStop(0.5, topColor);
@@ -55,7 +66,14 @@ export class CanvasManager {
       const y = row * this.tileHeight + this.tileHeight / 2;
       // const pos = this.isoToScreen(col, row, this.ctx);
 
-      this.drawText(x, y, tile.character, tile.topColor, tile.bottomColor);
+      this.drawText(
+        x,
+        y,
+        tile.character,
+        tile.topColor,
+        tile.bottomColor,
+        tile.bgColor,
+      );
     }
   }
   drawActors(actorMap: ActorMap) {
@@ -67,6 +85,7 @@ export class CanvasManager {
         actor.character,
         actor.topColor,
         actor.bottomColor,
+        actor.bgColor,
       );
     }
   }

@@ -27,3 +27,31 @@ export enum Color {
   LIGHTBROWN = "#D2B48C",
   LIGHTGRAY = "#D3D3D3",
 }
+
+const globalAlpha = 0.08;
+export enum RGBA {
+  RED = `rgba(255, 0, 0, ${globalAlpha})`,
+  GREEN = `rgba(0, 255, 0, ${globalAlpha})`,
+  BLUE = `rgba(0, 0, 255, ${globalAlpha})`,
+  YELLOW = `rgba(255, 255, 0, ${globalAlpha})`,
+  ORANGE = `rgba(255, 165, 0, ${globalAlpha})`,
+  PURPLE = `rgba(128, 0, 128, ${globalAlpha})`,
+  PINK = `rgba(255, 192, 203, ${globalAlpha})`,
+  BROWN = `rgba(165, 42, 42, ${globalAlpha})`,
+  BLACK = `rgba(0, 0, 0, ${globalAlpha})`,
+  WHITE = `rgba(255, 255, 255, ${globalAlpha})`,
+  DARKRED = `rgba(139, 0, 0, ${globalAlpha})`,
+  DARKGREEN = `rgba(0, 100, 0, ${globalAlpha})`,
+  DARKBLUE = `rgba(0, 0, 100, ${globalAlpha})`,
+  DARKYELLOW = `rgba(165, 42, 42, ${globalAlpha})`,
+  DARKORANGE = `rgba(255, 140, 0, ${globalAlpha})`,
+  DARKPURPLE = `rgba(75, 0, 130, ${globalAlpha})`,
+  DARKPINK = `rgba(219, 112, 147, ${globalAlpha})`,
+  DARKBROWN = `rgba(92, 64, 51, ${globalAlpha})`,
+  DARKGRAY = `rgba(169, 169, 169, ${globalAlpha})`,
+  LIGHTBLUE = `rgba(173, 216, 230, ${globalAlpha})`,
+  LIGHTGREEN = `rgba(144, 238, 144, ${globalAlpha})`,
+  LIGHTYELLOW = `rgba(255, 255, 224, ${globalAlpha})`,
+  LIGHTORANGE = `rgba(255, 213, 128, ${globalAlpha})`,
+  LIGHTPURPLE = `rgba(224, 176, 255, ${globalAlpha})`,
+}

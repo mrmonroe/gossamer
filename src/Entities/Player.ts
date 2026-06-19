@@ -6,6 +6,7 @@ export class Player {
   character: string;
   topColor: string;
   bottomColor: string;
+  bgColor: string;
   health: Health;
   attack: Attack;
   defense: Defense;
@@ -16,6 +17,7 @@ export class Player {
     this.character = "@";
     this.topColor = "white";
     this.bottomColor = "yellow";
+    this.bgColor = "rgba(255, 255, 0, 0.1)";
     this.health = new Health(100, 100);
     this.attack = new Attack(10, 10);
     this.defense = new Defense(5, 5);
