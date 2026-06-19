@@ -28,8 +28,8 @@ export class Game {
     this.map.generateMap();
     this.canvas.drawMap(this.map.tileMap);
     this.map.actorMap.addActor("player", this.player);
-    let firstWalkableTile = this.map.getFirstWalkableTile();
-    this.player.position = firstWalkableTile || { x: 0, y: 0 };
+    let firstRoadTile = this.map.getFirstRoadTile();
+    this.player.position = firstRoadTile || { x: 0, y: 0 };
     console.log(this.player);
     this.canvas.drawActors(this.map.actorMap);
     window.addEventListener("keydown", this.handleKeyDown.bind(this));

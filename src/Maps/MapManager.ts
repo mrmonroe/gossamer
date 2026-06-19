@@ -36,7 +36,7 @@ export class MapManager {
     }
     //let rndTile: { x: number; y: number } | undefined = this.getRandomTile();
 
-    let path = new Path(10, 10, 5, 5, "south");
+    let path = new Path(10, 10, 20, 5, "south");
     path.createPath((x: number, y: number, tileType: TileType) => {
       this.setTile(x, y, tileType);
     });
@@ -61,17 +61,17 @@ export class MapManager {
     }
     return undefined;
   }
-  // getFirstRoadTile(): { x: number; y: number } | undefined {
-  //   for (let i = 0; i < this.width; i++) {
-  //     for (let j = 0; j < this.height; j++) {
-  //       const tile = this.getTile(i, j);
-  //       if (tile && tile.type === TileType.ROAD) {
-  //         return { x: i, y: j };
-  //       }
-  //     }
-  //   }
-  //   return undefined;
-  // }
+  getFirstRoadTile(): { x: number; y: number } | undefined {
+    for (let i = 0; i < this.width; i++) {
+      for (let j = 0; j < this.height; j++) {
+        const tile = this.getTile(i, j);
+        if (tile && tile.type === TileType.ROAD) {
+          return { x: i, y: j };
+        }
+      }
+    }
+    return undefined;
+  }
   isOnMap(x: number, y: number): boolean {
     return x >= 0 && x < this.width && y >= 0 && y < this.height;
   }

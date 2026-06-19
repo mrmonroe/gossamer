@@ -22,26 +22,81 @@ export class Path {
     this.lastDirection = this.startDirection;
   }
   createPath(callback: Function) {
-    console.log("Starting Road Creation at:", this.startX, this.startY);
-    let end = this.buildSouthPath(
-      this.startX,
-      this.startY,
-      this.maxSegmentLength,
-      callback,
-    );
-    console.log("After South Path:", end);
-    end = this.buildEastPath(end[0], end[1], this.maxSegmentLength, callback);
-    console.log("After East Path:", end);
-    end = this.buildNorthPath(end[0], end[1], this.maxSegmentLength, callback);
-    console.log("After North Path:", end);
-    end = this.buildWestPath(end[0], end[1], this.maxSegmentLength, callback);
-    console.log("After West Path:", end);
+    for (let i = 0; i < this.maxSegments; i++) {
+      this.buildSegmentByDirection(callback);
+      this.changePathDirection();
+    }
+  }
 
+  buildSegmentByDirection(callback: Function) {
+    let end;
+    switch (this.startDirection) {
+      case "south":
+        console.log("Starting Road Creation at:", this.startX, this.startY);
+        end = this.buildSouthPath(
+          this.startX,
+          this.startY,
+          this.maxSegmentLength,
+          callback,
+        );
+        console.log("After South Path:", end);
+        break;
+      case "east":
+        console.log("Starting Road Creation at:", this.startX, this.startY);
+        end = this.buildEastPath(
+          this.startX,
+          this.startY,
+          this.maxSegmentLength,
+          callback,
+        );
+        console.log("After East Path:", end);
+        break;
+      case "north":
+        console.log("Starting Road Creation at:", this.startX, this.startY);
+        end = this.buildNorthPath(
+          this.startX,
+          this.startY,
+          this.maxSegmentLength,
+          callback,
+        );
+        console.log("After North Path:", end);
+        break;
+      case "west":
+        console.log("Starting Road Creation at:", this.startX, this.startY);
+        end = this.buildWestPath(
+          this.startX,
+          this.startY,
+          this.maxSegmentLength,
+          callback,
+        );
+
+        console.log("After West Path:", end);
+        break;
+    }
+    this.startX = end[0];
+    this.startY = end[1];
+    this.lastDirection = this.startDirection;
     // TODO: Implement road creation logic
   }
+  // createRectPath() {
+  //   // TODO: Implement rectangle path creation logic
+  //       let end = this.buildSouthPath(
+  //         this.startX,
+  //         this.startY,
+  //         this.maxSegmentLength,
+  //         callback,
+  //       );
+  //           console.log("After South Path:", end);
+  //   end = this.buildEastPath(end[0], end[1], this.maxSegmentLength, callback);
+  //   console.log("After East Path:", end);
+  //   end = this.buildNorthPath(end[0], end[1], this.maxSegmentLength, callback);
+  //   console.log("After North Path:", end);
+  //   end = this.buildWestPath(end[0], end[1], this.maxSegmentLength, callback);
+  //   console.log("After West Path:", end);
+  // }
   changePathDirection() {
     let dirArr = ["north", "south", "east", "west"];
-    let newDirection = this.lastDirection;
+    let newDirection;
 
     //avoid doublebacking
     if (this.lastDirection === "north") {
@@ -64,7 +119,7 @@ export class Path {
       dirArr.splice(dirArr.indexOf("east"), 1);
       newDirection = dirArr[Math.floor(Math.random() * dirArr.length)];
     }
-    this.lastDirection = newDirection;
+    this.startDirection = newDirection;
     return newDirection;
   }
   buildWestPath(
